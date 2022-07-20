@@ -1,0 +1,130 @@
+body{  
+    font-family: 'Poppins', sans-serif;
+}
+#logo{
+    width: 220px;
+    margin-top: 50px;   
+}
+.title {
+    padding-top: 70px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #68519D;
+}
+.title img{
+    margin-right: 10px;
+    margin-left: 15px;
+    width: 25px;
+}
+#openM{
+    padding: 5px;
+    margin-top: 20px;
+    color:#68519D;
+    border-color: #68519D;
+    border-width: 1px;
+    border-radius: 20px;
+    width: 260px;
+    background-color: white;
+}
+#openM:hover{
+    font-weight: 200;
+    background-color: #68519D;
+    color: white;
+}
+.sideA{
+    position: fixed;
+    background-color: #68519D;
+    height: 100%;
+    width: 65px;
+    border-right-style: solid;
+    border-right-width: 12px;
+    border-color: #d8cdf1;
+}
+.formA{
+    top:0;
+    left:0;
+    overflow:100%;
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.247);
+    color:#68519D;
+}
+.container2{
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 70px;
+    padding: 30px;
+}
+#cancel{
+    margin-top: 10px;
+    margin-left: 10px;
+    color: rgb(90, 90, 90);
+    font-size: 14px;
+    background-color: white;
+    border-style: none;
+}
+#save{
+    width: 100px;
+    padding: 7px;
+    border-width: 1px;
+    border-radius: 30px;
+    border-color: #68519D;
+    background-color: white;
+    color: #68519D;
+}
+.buttonsForm{
+    padding-top:20px;
+}
+table{
+    margin-top: 90px;
+    margin-left: 10px;
+    width: 100%;
+}
+#alerta{
+    margin-left: 80px;
+    text-align: center;
+    width: 300px;
+    position: fixed;
+    font-size: 20px;
+}
+td, th{
+    color:#2C2661;
+    padding: 5px;
+}
+td img{
+    width: 45%;
+    padding: 5px;
+}
+td img:hover{
+    cursor: pointer;
+    border: solid 1px #987dd6;
+    border-radius: 10px;
+}
+input, .status{
+    width: 100%;
+    color: #2C2661;
+    padding: 7px;
+    border-radius: 10px;
+    border-width: 1px;
+}
+.date, .status{
+    color: #2C2661;
+    width: 180px;
+}
+.status{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.container2 p{
+    font-size: 14px;
+    padding-top: 20px;
+    margin-bottom: 4px;
+}
+.container2 h5{
+    font-weight: bold;
+}
+tbody > tr:nth-child(even) {
+    background-color: rgb(241, 240, 240);
+}
