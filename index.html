@@ -24,11 +24,11 @@
     <div class="sideA"></div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-10">      
+            <div class="col-9">      
                 <div class="home">
                     <div><img id="logo" src="assets\imgs\logo.png"></div>
                     <div class="title"><img src="assets\imgs\ícone arnia.png"> Gerenciador de tarefas</div>
-                    <button type="text" id="openM" onclick="openModal()">+ Adicionar nova tarefa</button>
+                    <button type="text" id="openM" onclick="openModalSave()">+ Adicionar nova tarefa</button>
                     <div class="row">
                         <div class="col-sm-12">
                             <table>
@@ -51,17 +51,20 @@
                     </div>
                 </div>
             </div>
+            <div class="col-3">
+                <img id="yellowBar" src="assets\imgs\Vector 1.png">
+            </div>
         </div>
-
     </div>
+    <div class="sideB"></div>
 
-    <div class="formA" id="formA">
+    <div class="formA animate__animated" id="formA">
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
                 <div class="container2">
                     <form>
-                        <h5>Adicionar nova tarefa</h5>
+                        <h5 id="titleModal"></h5>
                         <p>Número</p>
                         <input type="number" id="num">
                         <p>Descrição</p>
@@ -81,7 +84,9 @@
                         <div class="row">
                             <div class="col-2"><button type="reset" id="cancel" onclick="closeModal()">Cancelar</button></div>
                             <div class="col-8"></div>
-                            <div class="col-2"><button type="submit" id="save" onclick="saveForm()">Salvar</button></div>
+                            <div class="col-2"><button type="submit" id="saveNew" onclick="addLineTable()">Salvar</button>
+                                <button type="submit" id="save" onclick="editLineTable(idEdit)">Salvar</button></div>
+
                         </div>
                     </div>
                 </div>

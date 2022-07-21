@@ -5,6 +5,18 @@ body{
     width: 220px;
     margin-top: 50px;   
 }
+.red{
+    color: rgb(212, 18, 18);
+    font-weight:500;
+}
+.green{
+    color: rgb(9, 155, 9);
+    font-weight:500;
+}
+.orange{
+    color: rgb(248, 164, 9);
+    font-weight:500;
+}
 .title {
     padding-top: 70px;
     font-size: 20px;
@@ -40,6 +52,17 @@ body{
     border-right-width: 12px;
     border-color: #d8cdf1;
 }
+.sideB{
+    z-index: 5;
+    position: relative;
+    margin-left:100px;
+    background-color: #e4ae1c;
+    height: 100%;
+    width: 65px;
+    border-right-style: solid;
+    border-right-width: 12px;
+    border-color: #edf1cd;
+}
 .formA{
     top:0;
     left:0;
@@ -65,7 +88,7 @@ body{
     background-color: white;
     border-style: none;
 }
-#save{
+#save, #saveNew{
     width: 100px;
     padding: 7px;
     border-width: 1px;
@@ -73,6 +96,13 @@ body{
     border-color: #68519D;
     background-color: white;
     color: #68519D;
+    display: none;
+}
+#yellowBar{
+    position: fixed;
+    top: 20%;
+    margin-left: 10%;
+
 }
 .buttonsForm{
     padding-top:20px;
@@ -83,15 +113,16 @@ table{
     width: 100%;
 }
 #alerta{
-    margin-left: 80px;
+    z-index: 5;
+    margin-left: 30px;
     text-align: center;
-    width: 300px;
+    width: 400px;
     position: fixed;
     font-size: 20px;
 }
 td, th{
     color:#2C2661;
-    padding: 5px;
+    padding: 7px;
 }
 td img{
     width: 45%;
