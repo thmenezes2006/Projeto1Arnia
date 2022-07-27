@@ -104,6 +104,7 @@ async function showTable(){
     let tasks = await dados.json()
     let linha = ""
     let cor = ""
+    let ballStat = "●"
     tasks.forEach((tasks) => {
 
         if(tasks.lineSt === "Concluído"){

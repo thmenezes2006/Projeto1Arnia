@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task-Manager</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/app.js"></script>
@@ -15,30 +16,31 @@
 
 <body>
     <div class="row">
-        <div class="col-2 col-sm-4"></div>
-        <div class="col-8 col-sm-4">
+        <div class="col-sm-4"></div>
+        <div class="col-12 col-sm-4">
             <div class="alert d-none animate__animated" id="alerta"></div>  <!-- Div para controlar o Alerta de sucesso ou fracasso do cadastro! -->
         </div>
+        <div class="col-sm-4"></div>
     </div>
 
     <div class="sideA"></div>
     <div class="container">
         <div class="row">
-            <div class="col-9">      
+            <div class="col-12 col-sm-9">      
                 <div class="home">
                     <div><img id="logo" src="assets\imgs\logo.png"></div>
                     <div class="title"><img src="assets\imgs\ícone arnia.png"> Gerenciador de tarefas</div>
                     <button type="text" id="openM" onclick="openModalSave()">+ Adicionar nova tarefa</button>
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-12 text-left">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="col-2">Núm</th>
-                                        <th class="col-4">Descrição</th>
-                                        <th class="col-3">Data de entrega</th>
-                                        <th class="col-2">Status</th>
-                                        <th class="col-1">Ação</th>
+                                        <th class="col-1 col-sm-2">Núm</th>
+                                        <th class="col-4 col-sm-4" >Descrição</th>
+                                        <th class="col-3 col-sm-3">Data de entrega</th>
+                                        <th class="col-1 col-sm-2">Status</th>
+                                        <th class="col-2 col-sm-1">Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody id="bodyTask">
@@ -51,44 +53,48 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3">
-                <img id="yellowBar" src="assets\imgs\Vector 1.png">
+            <div class="col-sm-3">
             </div>
         </div>
     </div>
     <div class="sideB"></div>
 
-    <div class="formA animate__animated" id="formA">
-        <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-                <div class="container2">
-                    <form>
-                        <h5 id="titleModal"></h5>
-                        <p>Número</p>
-                        <input type="number" id="num">
-                        <p>Descrição</p>
-                        <input type="text" id="description">
-                        <p>Data</p>
-                        <input class="date" type="date" id="date">
-                        <p>Status</p>
-                        <select class="status" type="text" id="status">
-                            <option hidden></option>
-                            <option>Concluído</option>
-                            <option>Em Andamento</option>
-                            <option>Parado</option>
-                        </select>
-                    </form>
+    <div class="row">
+        <div class="col-12">
+            <div class="formA" id="formA">
+                <div class="row">
+                    <div class="col-1 col-sm-3"></div>
+                    <div class="col-10 col-sm-6">
+                        <div class="container2">
+                            <form>
+                                <h5 id="titleModal"></h5>
+                                <p>Número</p>
+                                <input type="number" id="num">
+                                <p>Descrição</p>
+                                <input type="text" id="description">
+                                <p>Data</p>
+                                <input class="date" type="date" id="date">
+                                <p>Status</p>
+                                <select class="status" type="text" id="status">
+                                    <option hidden></option>
+                                    <option>Concluído</option>
+                                    <option>Em Andamento</option>
+                                    <option>Parado</option>
+                                </select>
+                            </form>
 
-                    <div class="buttonsForm">
-                        <div class="row">
-                            <div class="col-2"><button type="reset" id="cancel" onclick="closeModal()">Cancelar</button></div>
-                            <div class="col-8"></div>
-                            <div class="col-2"><button type="submit" id="saveNew" onclick="addLineTable()">Salvar</button>
-                                <button type="submit" id="save" onclick="editLineTable(idEdit)">Salvar</button></div>
+                            <div class="buttonsForm">
+                                <div class="row">
+                                    <div class="col-2 col-sm-2"><button type="reset" id="cancel" onclick="closeModal()">Cancelar</button></div>
+                                    <div class="col-5 col-sm-8"></div>
+                                    <div class="col-5 col-sm-2"><button type="submit" id="saveNew" onclick="addLineTable()">Salvar</button>
+                                        <button type="submit" id="save" onclick="editLineTable(idEdit)">Salvar</button></div>
 
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-1 col-sm-3"></div>
                 </div>
             </div>
         </div>
