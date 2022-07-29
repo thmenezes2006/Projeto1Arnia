@@ -1,39 +1,40 @@
 let idEdit = ""
 
-function openModalSave(){
+function openModalSave(){           //Função para abrir o modal com as funções de adição
     formA.style.display="block";
     saveNew.style.display="block";
     save.style.display="none";
     document.getElementById("titleModal").innerHTML = "Adicionar nova tarefa"
 }
-function openModalEdit(){
+function openModalEdit(){           //Função para abrir o modal com as funções de edição
     formA.style.display="block";
     save.style.display="block";
     saveNew.style.display="none";
     document.getElementById("titleModal").innerHTML = "Editar tarefa existente"
 }
-function closeModal(){
+function closeModal(){              //Função para fechar o modal
     formA.style.display="none";
     fadeAlert("Cadastrado CANCELADO!", "alert-warning", 1500, 2000) 
     clearModal()
 }
 
-function clearModal(){
+function clearModal(){          //Função para limpar o formulário após concluir uma ação
     document.getElementById("num").value = ""
     document.getElementById("description").value = ""
     document.getElementById("date").value = ""
     document.getElementById("status").value = ""
 }
 
-async function erase(id){
-    await fetch(`http://localhost:3000/lineTask/${id}`, {
+async function erase(id){                   //Função para deletar linha da tabela
+    await fetch(`http://23.22.22.211:8000/lineTask/${id}`, {
         method: "DELETE",
         })
-       showTable()
+        fadeAlert("Registro Deletado!", "alert-warning",1500 ,2000)
+        showTable()
 }
-async function edit(id){
+async function edit(id){            //Função para abrir o modal com os dados da linha à ser editados!
     idEdit = id
-    const editD = await fetch(`http://localhost:3000/lineTask/${id}`)
+    const editD = await fetch(`http://23.22.22.211:8000/lineTask/${id}`)
     let editDados = await editD.json()
     document.getElementById("num").value = editDados.lineNum
     document.getElementById("description").value = editDados.lineDp
@@ -42,7 +43,7 @@ async function edit(id){
     openModalEdit()
 }
 
-async function addLineTable(){
+async function addLineTable(){          //Função para adicionar Linha à tabela
     let n = document.getElementById("num").value
     let dp = document.getElementById("description").value
     let dt = document.getElementById("date").value
@@ -55,7 +56,7 @@ async function addLineTable(){
             lineDt: dt,
             lineSt: st,
         }
-        await fetch('http://localhost:3000/lineTask',{
+        await fetch('http://23.22.22.211:8000/lineTask',{
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -68,10 +69,9 @@ async function addLineTable(){
         fadeAlert("Cadastrado com sucesso!", "alert-primary",1500 ,2000)
         await showTable()
     } 
-}
-   
+}  
 
-async function editLineTable(id){
+async function editLineTable(id){       //Função para editar Linha da tabela!
     let n = document.getElementById("num").value
     let dp = document.getElementById("description").value
     let dt = document.getElementById("date").value
@@ -84,7 +84,7 @@ async function editLineTable(id){
             lineDt: dt,
             lineSt: st,
         }
-        await fetch(`http://localhost:3000/lineTask/${id}`,{
+        await fetch(`http://23.22.22.211:8000/lineTask/${id}`,{
             method: "PUT",
             headers: {
                 "content-type": "application/json"
@@ -96,15 +96,13 @@ async function editLineTable(id){
         clearModal()
         await showTable()
     }
-}
-   
+}  
 
-async function showTable(){
-    const dados = await fetch('http://localhost:3000/lineTask')
+async function showTable(){     //Função para exibir a tabela preenchida!
+    const dados = await fetch('http://23.22.22.211:8000/lineTask')
     let tasks = await dados.json()
     let linha = ""
     let cor = ""
-    let ballStat = "●"
     tasks.forEach((tasks) => {
 
         if(tasks.lineSt === "Concluído"){
@@ -120,18 +118,17 @@ async function showTable(){
         <td id="descr${tasks.id}">${tasks.lineDp}</td>
         <td id="dat${tasks.id}">${tasks.lineDt.split('-').reverse().join('/')} </td>
         <td id="stat${tasks.id}" class="${cor}">${tasks.lineSt}</td>
-        <td><img id="editLine${tasks.id}" onclick="edit(${tasks.id})" src="assets/imgs/editIcone.png"><img id="eraseLine{tasks.id}" onclick="erase(${tasks.id})" src="assets/imgs/excluirIcone.png"></td>
+        <td><img id="editLine${tasks.id}" onclick="edit(${tasks.id})" src="assets/imgs/editIcone.png"><img id="eraseLine${tasks.id}" onclick="erase(${tasks.id})" src="assets/imgs/excluirIcone.png"></td>
         </tr>`
 
         });
     
             document.getElementById('bodyTask').innerHTML = linha
-        }
-
+}
 
 showTable()
 
-function fadeAlert(style, status, t1, t2){
+function fadeAlert(style, status, t1, t2){ // função para criar um alerta ao concluir as funções de adicionar, editar ou cancelar itens da tabela!
     let saveOrCancel
     saveOrCancel = document.getElementById("alerta")
     saveOrCancel.innerHTML = style
